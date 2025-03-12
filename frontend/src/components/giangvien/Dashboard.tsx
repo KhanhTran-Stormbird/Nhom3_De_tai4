@@ -1,21 +1,16 @@
 import { JSX, useState } from "react";
-import "../../styles/sinhvien/Dashboard.css";
+import "../../styles/giangvien/Dashboard.css";
 
 import {
   Menu as MenuIcon,
   Home,
-  FileText,
   ClipboardList,
-  CheckCircle,
   User,
   ChevronDown,
 } from "lucide-react";
 
-import PersonalInfo from "./PersonalInfo";
-import Internship from "./Internship";
-import InternshipResult from "./InternshipResult";
-import ProjectResult from "./ProjectResult";
-import Project from "./Project";
+import ProjectApproval from "./ProjectApproval";
+
 
 interface MenuItem {
   name: string;
@@ -25,20 +20,14 @@ interface MenuItem {
 
 const menuItems: MenuItem[] = [
   { name: "Trang chủ", key: "home", icon: <Home size={18} /> },
-  { name: "Đăng ký thực tập", key: "internship", icon: <ClipboardList size={18} /> },
-  { name: "Đăng ký đồ án", key: "project", icon: <FileText size={18} /> },
-  { name: "Kết quả đồ án", key: "project-result", icon: <CheckCircle size={18} /> },
-  { name: "Kết quả thực tập", key: "internship-result", icon: <CheckCircle size={18} /> },
+  { name: "Phê duyệt đồ án", key: "project-approval", icon: <ClipboardList size={18} /> },
   { name: "Thông tin cá nhân", key: "personal-info", icon: <User size={18} /> },
 ];
 
 const gridItems: MenuItem[] = [
-  { name: "Đăng ký thực tập", key: "internship" },
-  { name: "Đăng ký đồ án", key: "project" },
-  { name: "Kết quả đồ án", key: "project-result" },
-  { name: "Kết quả thực tập", key: "internship-result" },
+  { name: "Phê duyệt đồ án", key: "project-approval" },
   { name: "Thông tin cá nhân", key: "personal-info" },
-  { name: "Danh sách giảng viên", key: "teachers" },
+  
 ];
 
 export default function Dashboard() {
@@ -48,16 +37,9 @@ export default function Dashboard() {
 
   const renderContent = () => {
     switch (currentPage) {
-      case "personal-info":
-        return <PersonalInfo />;
-        case "internship":
-          return <Internship />; // Hiển thị trang Internship khi chọn
-          case "internship-result":
-          return < InternshipResult/>;
-          case "project-result":
-          return < ProjectResult/>;
-          case "project":
-          return < Project/>;
+      case "project-approval":
+        return <ProjectApproval />;
+        
       default:
         return (
           <div className="grid-container">
@@ -93,7 +75,7 @@ export default function Dashboard() {
         {/* User Dropdown */}
         <div className="user-dropdown" onClick={() => setDropdownOpen(!dropdownOpen)}>
           <User className="user-icon" size={20} />
-          <span className="username">NGUYỄN VĂN AN</span>
+          <span className="username">Trần Văn Bình</span>
           <ChevronDown className={`dropdown-icon ${dropdownOpen ? "rotated" : ""}`} size={18} />
           {dropdownOpen && (
             <div className="dropdown-menu">

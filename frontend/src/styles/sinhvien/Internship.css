@@ -1,0 +1,92 @@
+.internship-container {
+    background-color: #eaeaea;
+    padding: 20px;
+  }
+  
+  .internship-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #dcdcdc;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .radio-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .date-info p {
+    margin: 0;
+  }
+  
+  .register-button {
+    background: white;
+    border: 1px solid #000;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  .register-button:hover {
+  background: white !important;
+  border: 1px solid #000 !important;
+  color: inherit !important;
+  cursor: default !important;
+}
+  
+  .internship-content {
+    display: flex;
+    margin-top: 10px;
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  
+  .icon-section {
+    font-size: 30px;
+    padding-right: 10px;
+  }
+  
+  .table-section {
+    flex-grow: 1;
+  }
+  
+  .table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+  }
+  
+  .blue-text {
+    color: blue;
+  }
+  
+  .refresh-icon {
+    cursor: pointer;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  th {
+    background: #dcdcdc;
+  }
+  
+  input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+  }
+  
