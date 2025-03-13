@@ -1,0 +1,31 @@
+.container {
+    min-height: 100%;
+    background-color: #384150;
+}
+
+.close_sidebar {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: rgb(163, 168, 175);
+}
+
+.close_sidebar:hover {
+    cursor: pointer;
+    color: #fff;
+}
+
+.close_sidebar:hover .container {
+    width: 30%;
+}
+
+.menu {
+    background-color: #384150;
+
+    .menu li {
+        color: #fff;
+    }
+
+    .menu li:hover {
+        background-color: white;
+    }
+}

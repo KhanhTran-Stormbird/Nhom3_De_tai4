@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar_wrapper {
+    display: flex;
+
+    .sidebar {
+        width: 15%;
+        min-height: 100%;
+    }
+
+    .content {
+        background-color: rgb(243, 244, 245);
+        width: 100%;
+        min-height: 100vh;
+    }
+}
+
+
+.content_wrapper {
+    min-width: 100%;
+}

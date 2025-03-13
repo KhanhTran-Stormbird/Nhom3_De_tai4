@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0px;
+}
+
+.container {
+    padding: 0 200px;
+
+    .function button {
+        cursor: pointer;
+        border: none;
+        padding: 10px;
+        font-size: large;
+    }
+
+    .table {
+        width: 100%;
+    }
+}
