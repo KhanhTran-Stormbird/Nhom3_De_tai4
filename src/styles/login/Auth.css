@@ -1,0 +1,123 @@
+/* Đảm bảo trang chiếm toàn bộ màn hình */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    color-scheme: light;
+}
+
+
+html,
+body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #333;
+}
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+}
+
+/* Hộp đăng nhập */
+.auth-box {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Tiêu đề */
+.auth-box h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Nhãn và ô nhập liệu */
+.auth-box label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background: #fff;
+    color: #333;
+}
+
+/* Nút đăng nhập */
+.btn-login {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #0056b3;
+}
+
+/* Liên kết quên mật khẩu */
+.auth-box a {
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.auth-box a:hover {
+    text-decoration: underline;
+}
+
+.header-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    color: #0056b3;
+    margin-bottom: 20px;
+}
+
+.header-login {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+}
+
+.faculty {
+    font-size: 28px;
+    font-weight: bold;
+    color: #003366;
+}
+
+.university {
+    font-size: 18px;
+    font-weight: normal;
+    color: #0056b3;
+}

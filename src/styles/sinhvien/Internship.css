@@ -1,0 +1,123 @@
+:root {
+  color-scheme: light;
+}
+
+
+.internship-container {
+  background-color: #eaeaea;
+  padding: 20px;
+}
+
+.internship-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  padding: 10px;
+  border-radius: 5px;
+}
+.button2{
+  pointer-events: none;
+}
+
+.radio-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.date-info p {
+  margin: 0;
+}
+
+.register-button {
+  background: white;
+  border: 1px solid #000;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+
+
+.internship-content {
+  display: flex;
+  margin-top: 10px;
+  background: white;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.icon-section {
+  font-size: 30px;
+  padding-right: 10px;
+}
+
+.table-section {
+  flex-grow: 1;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.blue-text {
+  color: blue;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background: #dcdcdc;
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+.button{
+  pointer-events: none;
+}
+/* Thông báo đăng ký thành công (trôi ngang từ phải vào) */
+.success-message {
+  position: fixed;
+  top: 20px;
+  right: -300px; /* Bắt đầu ngoài màn hình */
+  background-color: #28a745;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
+  z-index: 1000;
+}
+
+/* Khi hiển thị, trôi vào giữa màn hình */
+.success-message.show {
+  right: 20px; /* Di chuyển vào màn hình */
+  opacity: 1;
+}
+
+/* Khi ẩn đi, trôi ra khỏi màn hình */
+.success-message:not(.show) {
+  right: -300px; /* Trôi ra ngoài màn hình */
+  opacity: 0;
+}

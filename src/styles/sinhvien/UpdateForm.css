@@ -1,0 +1,86 @@
+/* Container chính */
+.update-form-container {
+    width: 600px;
+    margin: 50px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header của form */
+  .update-form-header {
+    background: #d1d1d1;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px;
+  }
+  
+  /* Nội dung form */
+  .update-form-body {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  /* Group từng ô nhập liệu */
+  .update-form-group {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  /* Nhãn label */
+  .update-form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Ô input */
+  .update-form-group input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #f5f5f5;
+  }
+  
+  /* Hàng nút bấm */
+  .update-form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  /* Nút Lưu thay đổi */
+  .update-form-save-btn {
+    background: green;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  /* Nút Hủy */
+  .update-form-cancel-btn {
+    background: gray;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  /* Hover */
+  .update-form-save-btn:hover {
+    background: darkgreen;
+  }
+  
+  .update-form-cancel-btn:hover {
+    background: darkgray;
+  }
+  

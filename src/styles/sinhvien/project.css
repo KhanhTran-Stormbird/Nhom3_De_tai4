@@ -1,0 +1,81 @@
+
+:root {
+  color-scheme: light;
+}
+
+.project-page-container {
+  width: 100%;
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+.project-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #eaeaea;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.project-page-filter label {
+  margin-right: 10px;
+}
+
+.project-page-date-info p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.project-page-register-section {
+  margin-top: 10px;
+}
+
+.project-page-register-button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.project-page-register-button:hover {
+  background-color: #0056b3;
+}
+
+.project-page-content {
+  margin-top: 15px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.project-page-grid-icon,
+.project-page-refresh-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.project-page-refresh-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.project-page-register-link {
+  display: block;
+  color: blue;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.project-page-register-link:hover {
+  text-decoration: underline;
+}
+
+.project-page-dangki {
+  font-size: 30px;
+}

@@ -1,0 +1,7 @@
+:root {
+  color-scheme: light;
+}
+
+.register-btn {
+  pointer-events: none;
+}

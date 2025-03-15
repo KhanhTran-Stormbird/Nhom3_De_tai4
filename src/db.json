@@ -1,0 +1,27 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "truongkhoa@example.com",
+      "password": "hihi",
+      "role": "truong_khoa"
+    },
+    {
+      "id": "2",
+      "email": "giangvien@example.com",
+      "password": "12341234",
+      "role": "giang_vien"
+    },
+    {
+      "id": "3",
+      "email": "sinhvien@example.com",
+<<<<<<< HEAD:frontend/src/components/login/db.json
+      "password": ".",
+      "role": "sinhvien"
+=======
+      "password": "mk123",
+      "role": "sinh_vien"
+>>>>>>> 643662858895eb9d6f1d4844bee331d1e6ca691b:frontend/src/db.json
+    }
+  ]
+}
