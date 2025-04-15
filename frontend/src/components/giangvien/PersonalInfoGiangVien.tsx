@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import "../../styles/giangvien/PersonalInfoGiangVien.css";
-import GiangVienUpd from "./GiangVienUpd"; // Import trang cập nhật
+import GiangVienUpd from "./GiangVienUpd";
 
 export default function PersonalInfoGiangVien() {
   const [currentPage, setCurrentPage] = useState("personal-info");
 
-  // State lưu thông tin giảng viên
   const [giangVienInfo, setGiangVienInfo] = useState({
     fullName: "",
     gender: "",
@@ -26,18 +25,17 @@ export default function PersonalInfoGiangVien() {
         ...prev,
         fullName: storedData.ho_ten || "",
         gender: storedData.gioi_tinh || "",
-        dob: storedData.ngay_sinh ? new Date(storedData.ngay_sinh).toLocaleDateString("vi-VN") : "",
+        dob: storedData.ngay_sinh
+          ? new Date(storedData.ngay_sinh).toLocaleDateString("vi-VN")
+          : "",
         phone: storedData.so_dien_thoai || "",
         email: storedData.email || "",
         teacherId: storedData.username || "",
       }));
 
-      // Gọi API lấy thông tin giảng viên
       fetch(`/api/giang-vien/${storedData.username}`)
         .then((res) => res.json())
         .then((data) => {
-          console.log("Dữ liệu từ API giảng viên:", data); // Log để kiểm tra dữ liệu trả về
-          
           if (Array.isArray(data) && data.length > 0) {
             const giangvien = data[0];
             setGiangVienInfo((prev) => ({
@@ -47,10 +45,14 @@ export default function PersonalInfoGiangVien() {
               majorCode: giangvien?.ma_nganh || "N/A",
             }));
           } else {
-            console.warn("API giảng viên trả về dữ liệu không hợp lệ hoặc rỗng.");
+            console.warn(
+              "API giảng viên trả về dữ liệu không hợp lệ hoặc rỗng."
+            );
           }
         })
-        .catch((err) => console.error("Lỗi khi lấy thông tin giảng viên:", err));
+        .catch((err) =>
+          console.error("Lỗi khi lấy thông tin giảng viên:", err)
+        );
     }
   }, []);
 
@@ -83,13 +85,15 @@ export default function PersonalInfoGiangVien() {
         <div className="info-grid">
           {Object.entries(giangVienInfo).map(([key, value]) => (
             <div className="info-item" key={key}>
-              <label>{labelMap[key] || key}</label>
+              <label>{labelMap[key as keyof typeof labelMap] || key}</label>
               <input type="text" value={value} readOnly />
             </div>
           ))}
         </div>
         <div className="button-group">
-          <button onClick={() => setCurrentPage("update-form")}>Cập nhật thông tin</button>
+          <button onClick={() => setCurrentPage("update-form")}>
+            Cập nhật thông tin
+          </button>
         </div>
       </div>
     );

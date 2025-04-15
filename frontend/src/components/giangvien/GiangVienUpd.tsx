@@ -1,13 +1,29 @@
 import { useState } from "react";
 import "../../styles/giangvien/GiangVienUpd.css";
 
-interface GiangVienUpdProps {
-  setCurrentPage: (page: string) => void;
-  giangVienInfo: Record<string, string>;
-  setGiangVienInfo: (info: Record<string, string>) => void;
+interface GiangVienInfo {
+  fullName: string;
+  gender: string;
+  dob: string;
+  phone: string;
+  email: string;
+  field: string;
+  teacherId: string;
+  position: string;
+  majorCode: string;
 }
 
-export default function GiangVienUpd({ setCurrentPage, giangVienInfo, setGiangVienInfo }: GiangVienUpdProps) {
+interface GiangVienUpdProps {
+  setCurrentPage: (page: string) => void;
+  giangVienInfo: GiangVienInfo;
+  setGiangVienInfo: React.Dispatch<React.SetStateAction<GiangVienInfo>>;
+}
+
+export default function GiangVienUpd({
+  setCurrentPage,
+  giangVienInfo,
+  setGiangVienInfo,
+}: GiangVienUpdProps) {
   const [updatedInfo, setUpdatedInfo] = useState(giangVienInfo);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -18,22 +34,23 @@ export default function GiangVienUpd({ setCurrentPage, giangVienInfo, setGiangVi
 
   const handleSave = async () => {
     try {
-      const response = await fetch(`/api/giang-vien/${giangVienInfo.teacherId}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(updatedInfo),
-      });
+      const response = await fetch(
+        `/api/giang-vien/${giangVienInfo.teacherId}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updatedInfo),
+        }
+      );
 
       if (!response.ok) throw new Error("Cập nhật thất bại!");
 
-      // Cập nhật lại state và localStorage
       setGiangVienInfo(updatedInfo);
       localStorage.setItem("giangVienInfo", JSON.stringify(updatedInfo));
 
       setSuccessMessage("Cập nhật thông tin thành công!");
       setErrorMessage(null);
 
-      // Quay lại trang trước sau 1.5 giây
       setTimeout(() => {
         setSuccessMessage(null);
         setCurrentPage("personal-info");
@@ -50,7 +67,9 @@ export default function GiangVienUpd({ setCurrentPage, giangVienInfo, setGiangVi
         <h2>Cập nhật thông tin</h2>
       </div>
 
-      {successMessage && <div className="success-message">{successMessage}</div>}
+      {successMessage && (
+        <div className="success-message">{successMessage}</div>
+      )}
       {errorMessage && <div className="error-message">{errorMessage}</div>}
 
       <div className="form-grid">
@@ -64,14 +83,26 @@ export default function GiangVienUpd({ setCurrentPage, giangVienInfo, setGiangVi
         ].map(({ label, name }) => (
           <div className="form-group" key={name}>
             <label>{label}</label>
-            <input name={name} type="text" value={updatedInfo[name]} onChange={handleChange} />
+            <input
+              name={name}
+              type="text"
+              value={updatedInfo[name as keyof GiangVienInfo]}
+              onChange={handleChange}
+            />
           </div>
         ))}
       </div>
 
       <div className="button-group">
-        <button className="save-btn" onClick={handleSave}>Lưu thay đổi</button>
-        <button className="cancel-btn" onClick={() => setCurrentPage("personal-info")}>Hủy</button>
+        <button className="save-btn" onClick={handleSave}>
+          Lưu thay đổi
+        </button>
+        <button
+          className="cancel-btn"
+          onClick={() => setCurrentPage("personal-info")}
+        >
+          Hủy
+        </button>
       </div>
     </div>
   );

@@ -29,10 +29,26 @@ interface MenuItem {
 
 const menuItems: MenuItem[] = [
   { name: "Trang chủ", key: "home", icon: <Home size={18} /> },
-  { name: "Đăng ký thực tập", key: "internship", icon: <ClipboardList size={18} /> },
-  { name: "Đăng ký đồ án", key: "project-page-container", icon: <FileText size={18} /> },
-  { name: "Kết quả đồ án", key: "project-result", icon: <CheckCircle size={18} /> },
-  { name: "Kết quả thực tập", key: "internship-result", icon: <CheckCircle size={18} /> },
+  {
+    name: "Đăng ký thực tập",
+    key: "internship",
+    icon: <ClipboardList size={18} />,
+  },
+  {
+    name: "Đăng ký đồ án",
+    key: "project-page-container",
+    icon: <FileText size={18} />,
+  },
+  {
+    name: "Kết quả đồ án",
+    key: "project-result",
+    icon: <CheckCircle size={18} />,
+  },
+  {
+    name: "Kết quả thực tập",
+    key: "internship-result",
+    icon: <CheckCircle size={18} />,
+  },
   { name: "Thông tin cá nhân", key: "personal-info", icon: <User size={18} /> },
 ];
 
@@ -46,7 +62,7 @@ const gridItems: MenuItem[] = [
 
 export default function DashboardSinhvien() {
   useEffect(() => {
-    document.title = 'Dashboard';
+    document.title = "Dashboard";
   }, []);
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
   const [currentPage, setCurrentPage] = useState<string>("home");
@@ -74,12 +90,16 @@ export default function DashboardSinhvien() {
       case "register-topic-wrapper":
         return <RegisterTopic />;
       case "update-form":
-        return <UpdateForm />;
+        return <UpdateForm setCurrentPage={setCurrentPage} />;
       default:
         return (
           <div className="grid-container">
             {gridItems.map((item, index) => (
-              <div key={index} className="grid-item" onClick={() => setCurrentPage(item.key)}>
+              <div
+                key={index}
+                className="grid-item"
+                onClick={() => setCurrentPage(item.key)}
+              >
                 {item.name}
               </div>
             ))}
@@ -109,16 +129,28 @@ export default function DashboardSinhvien() {
         </div>
 
         {/* User Dropdown */}
-        <div className="user-dropdown" onClick={() => setDropdownOpen(!dropdownOpen)}>
+        <div
+          className="user-dropdown"
+          onClick={() => setDropdownOpen(!dropdownOpen)}
+        >
           <User className="user-icon" size={20} />
           <span className="username">{hoTen}</span>
-          <ChevronDown className={`dropdown-icon ${dropdownOpen ? "rotated" : ""}`} size={18} />
+          <ChevronDown
+            className={`dropdown-icon ${dropdownOpen ? "rotated" : ""}`}
+            size={18}
+          />
           {dropdownOpen && (
             <div className="dropdown-menu">
-              <div className="dropdown-item" onClick={() => setCurrentPage("personal-info")}>
+              <div
+                className="dropdown-item"
+                onClick={() => setCurrentPage("personal-info")}
+              >
                 Thông tin tài khoản
               </div>
-              <div className="dropdown-item" onClick={() => setCurrentPage("change-password")}>
+              <div
+                className="dropdown-item"
+                onClick={() => setCurrentPage("change-password")}
+              >
                 Đổi mật khẩu
               </div>
               <div
@@ -140,7 +172,11 @@ export default function DashboardSinhvien() {
         <div className={`sidebar ${sidebarOpen ? "open" : "closed"}`}>
           <ul>
             {menuItems.map((item, index) => (
-              <li key={index} className="menu-item" onClick={() => setCurrentPage(item.key)}>
+              <li
+                key={index}
+                className="menu-item"
+                onClick={() => setCurrentPage(item.key)}
+              >
                 {item.icon} <span>{item.name}</span>
               </li>
             ))}
